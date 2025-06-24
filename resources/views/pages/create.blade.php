@@ -55,7 +55,7 @@
 
                 <div class="mb-3">
                     <label for="progression" class="form-label">Progression (%)</label>
-                    <input type="text" name="progression" id="progression" class="form-control" value="{{ old('progression') }}"  placeholder="Exemple : 50 ou 50%" required>
+                    <input type="number" min="0" max="100" name="progression" id="progression" class="form-control" value="{{ old('progression') }}"  placeholder="Nombre entre 1 et 100 sans %" required>
                 </div>
 
                 <div class="d-flex justify-content-between">
