@@ -69,12 +69,7 @@
         <a href="{{ route('project.create') }}" class="btn btn-primary">
             Ajouter un nouveau projet
         </a>
-        <form method="POST" action="{{ route('project.dummy') }}">
-        @csrf
-        <button type="submit" class="btn btn-secondary">Add Dummy Project</button>
-    </form>
     </div>
-
 </div>
 
 <script>

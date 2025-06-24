@@ -78,18 +78,4 @@ class ProjectController extends Controller
         $project->delete();
         return redirect(route('project.index'))->with('success', 'Projet supprimé');
     }
-
-    public function storeDummy()
-    {
-        Project::create([
-            'name' => 'Dummy',
-            'client' => 'Dummy',
-            'description' => 'Dummy',
-            'status' => 'En attente',
-            'progression' => 0,
-        ]);
-
-        return redirect()->route('project.index')->with('success', 'Projet Dummy ajouté !');
-    }
-
 }
