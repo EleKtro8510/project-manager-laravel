@@ -48,16 +48,16 @@
                         class="form-select"
                         required
                     >
-                        <option value="">-- Sélectionner --</option>
-                        <option value="Stagiaire">Stagiaire</option>
-                        <option value="Développeur Front-End">Développeur Front-End</option>
-                        <option value="Développeur Back-End">Développeur Back-End</option>
-                        <option value="Développeur Full-Stack">Développeur Full-Stack</option>
-                        <option value="Chef de projet">Chef de projet</option>
-                        <option value="Designer">Designer</option>
-                        <option value="Testeur">Testeur</option>
-                        <option value="Intégrateur Web">Intégrateur Web</option>
-                        <option value="Rédacteur">Rédacteur</option>
+                        <option value="" disabled>-- Sélectionner --</option>
+                        <option value="Stagiaire" {{ old('role', $member->role ?? '') == 'Stagiaire' ? 'selected' : '' }}>Stagiaire</option>
+                        <option value="Développeur Front-End" {{ old('role', $member->role ?? '') == 'Développeur Front-End' ? 'selected' : '' }}>Développeur Front-End</option>
+                        <option value="Développeur Back-End" {{ old('role', $member->role ?? '') == 'Développeur Back-End' ? 'selected' : '' }}>Développeur Back-End</option>
+                        <option value="Développeur Full-Stack" {{ old('role', $member->role ?? '') == 'Développeur Full-Stack' ? 'selected' : '' }}>Développeur Full-Stack</option>
+                        <option value="Chef de projet" {{ old('role', $member->role ?? '') == 'Chef de projet' ? 'selected' : '' }}>Chef de projet</option>
+                        <option value="Designer" {{ old('role', $member->role ?? '') == 'Designer' ? 'selected' : '' }}>Designer</option>
+                        <option value="Testeur" {{ old('role', $member->role ?? '') == 'Testeur' ? 'selected' : '' }}>Testeur</option>
+                        <option value="Intégrateur Web" {{ old('role', $member->role ?? '') == 'Intégrateur Web' ? 'selected' : '' }}>Intégrateur Web</option>
+                        <option value="Rédacteur" {{ old('role', $member->role ?? '') == 'Rédacteur' ? 'selected' : '' }}>Rédacteur</option>
                     </select>
                 </div>
 

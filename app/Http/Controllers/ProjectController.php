@@ -53,7 +53,7 @@ class ProjectController extends Controller
 
     public function edit(Project $project){
         $teams = Team::all();
-       return view('pages/edit/project', ['project' => $project, 'teams' => $teams]);
+        return view('pages/edit/project', ['project' => $project, 'teams' => $teams]);
     }
 
     public function update(Project $project, Request $request){
