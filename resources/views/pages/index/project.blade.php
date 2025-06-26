@@ -55,7 +55,7 @@
                     </tr>
                     {{-- Ligne description et équipe cachée --}}
                     <tr class="description-row" style="display:none;">
-                        <td colspan="7" class="bg-light">
+                        <td colspan="7" class="bg-light" style="word-break: break-word; white-space: normal;">
                             <p><strong>Description:</strong> {{ $project->description ?? 'Aucune description' }}</p>
                             <p><strong>Équipe rattachée:</strong> {{ $project->team?->name ?? 'Aucune équipe' }}</p>
                         </td>

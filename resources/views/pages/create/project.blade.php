@@ -62,6 +62,8 @@
                     <label for="team" class="form-label">Assigner une équipe</label>
                     <select name="team" id="team" class="form-select" required>
                         <option value="">-- Sélectionner --</option>
+                        <option value="">Aucune équipe</option>
+
                         @foreach($teams as $team)
                             <option value="{{ $team->id }}">{{ $team->name }}</option>
                         @endforeach
