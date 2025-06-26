@@ -58,6 +58,16 @@
                     <input type="number" min="0" max="100" name="progression" id="progression" class="form-control" value="{{ old('progression') }}"  placeholder="Nombre entre 1 et 100 sans %" required>
                 </div>
 
+                <div class="mb-3">
+                    <label for="team" class="form-label">Assigner une équipe</label>
+                    <select name="team" id="team" class="form-select" required>
+                        <option value="">-- Sélectionner --</option>
+                        @foreach($teams as $team)
+                            <option value="{{ $team->id }}">{{ $team->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
                 <div class="d-flex justify-content-between">
                     <a href="{{ route('project.index') }}" class="btn btn-secondary">Retour à la liste</a>
                     <button type="submit" class="btn btn-primary">Enregistrer le projet</button>

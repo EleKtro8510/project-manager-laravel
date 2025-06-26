@@ -4,16 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Project;
+use App\Models\Team;
 
 class ProjectController extends Controller
 {
     public function index(){
         $projects = Project::all();
-        return view('pages/index', ['projects' => $projects]);
+        return view('pages/index/project', ['projects' => $projects]);
     }
 
     public function create(){
-        return view('pages/create');
+        $teams = Team::all();
+        return view('pages/create/project', compact('teams'));
     }
 
     public function store(Request $request){
@@ -34,6 +36,7 @@ class ProjectController extends Controller
                     }
                 }
             ],
+            'team_id' => 'nullable|exists:teams,id',
         ]);
 
     // Nettoyer la valeur pour l’enregistrer correctement
@@ -41,12 +44,16 @@ class ProjectController extends Controller
 
         
         $newProject = Project::create($data);
+        $newProject->team_id = $request->input('team');
+        $newProject->save();
+
 
         return redirect(route('project.index'))->with('success', 'Projet ajouté');
     }
 
     public function edit(Project $project){
-       return view('pages.edit', ['project' => $project]);
+        $teams = Team::all();
+       return view('pages/edit/project', ['project' => $project, 'teams' => $teams]);
     }
 
     public function update(Project $project, Request $request){
@@ -67,9 +74,12 @@ class ProjectController extends Controller
                     }
                 }
             ],
+            'team_id' => 'nullable|exists:teams,id',
         ]);
 
         $project->update($data);
+        $project->team_id = $request->input('team');
+        $project->save();
 
         return redirect(route('project.index'))->with('success', 'Projet mis à jour');
     }

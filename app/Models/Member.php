@@ -4,16 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Project extends Model
+class Member extends Model
 {
-    protected $table = 'project';
 
     protected $fillable = [
         'name',
-        'client',
-        'description',
-        'status',
-        'progression'
+        'role',
+        'team_id',
     ];
 
     public function team()

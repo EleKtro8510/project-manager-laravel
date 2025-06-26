@@ -92,6 +92,19 @@
                     >
                 </div>
 
+                <div class="mb-3">
+                    <label for="team" class="form-label">Assigner une équipe</label>
+                    <select name="team" id="team" class="form-select" required>
+                        <option value="" disabled>-- Sélectionner --</option>
+                        <option value="" {{ $project->team_id === null ? 'selected' : '' }}>Aucune équipe</option>
+                        @foreach($teams as $team)
+                            <option value="{{ $team->id }}" {{ $project->team_id === $team->id ? 'selected' : '' }}>
+                                {{ $team->name }}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
+
                 <div class="d-flex justify-content-between">
                     <a href="{{ route('project.index') }}" class="btn btn-secondary">Retour à la liste</a>
                     <button type="submit" class="btn btn-primary">Mettre à jour</button>

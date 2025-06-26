@@ -6,7 +6,7 @@
 @section('content')
 <div class="container mt-5">
 
-    <h1 class="mb-4">Projets</h1>
+    <h1 class="mb-4">Projets / <a href="{{ route('team.index') }}">Equipes</a> / <a href="{{ route('member.index') }}">Membres</a></h1>
 
     
     
@@ -53,10 +53,11 @@
                             </form>
                         </td>
                     </tr>
-                    {{-- Ligne description cachée --}}
+                    {{-- Ligne description et équipe cachée --}}
                     <tr class="description-row" style="display:none;">
                         <td colspan="7" class="bg-light">
-                            <strong>Description:</strong> {{ $project->description ?? 'Aucune description' }}
+                            <p><strong>Description:</strong> {{ $project->description ?? 'Aucune description' }}</p>
+                            <p><strong>Équipe rattachée:</strong> {{ $project->team?->name ?? 'Aucune équipe' }}</p>
                         </td>
                     </tr>
                 @endforeach
