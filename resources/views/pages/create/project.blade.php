@@ -50,6 +50,8 @@
                         <option value="En cours" {{ old('status') == 'En cours' ? 'selected' : '' }}>En cours</option>
                         <option value="Terminé" {{ old('status') == 'Terminé' ? 'selected' : '' }}>Terminé</option>
                         <option value="En attente" {{ old('status') == 'En attente' ? 'selected' : '' }}>En attente</option>
+                        <option value="Annulé" {{ old('status') == 'Annulé' ? 'selected' : '' }}>Annulé</option>
+                        <option value="En pause" {{ old('status') == 'En pause' ? 'selected' : '' }}>En pause</option>
                     </select>
                 </div>
 

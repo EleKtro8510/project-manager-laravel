@@ -59,12 +59,45 @@
                                 Modifier
                             </a>
                         </td>
-                        <td>
-                            <form method="POST" action="{{ route('project.destroy', ['project' => $project]) }}" onsubmit="return confirm('Confirmer la suppression ?')" onclick="event.stopPropagation();">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-sm btn-danger">Supprimer</button>
-                            </form>
+                        <td onclick="event.stopPropagation();" >
+                            <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#confirmModal-{{ $project->id }}" onclick="event.stopPropagation();" >
+                                Supprimer
+                            </button>
+                            <div class="modal fade" id="confirmModal-{{ $project->id }}" tabindex="-1" aria-labelledby="confirmModalLabel-{{ $project->id }}" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="confirmModalLabel-{{ $project->id }}">Que souhaitez-vous faire ?</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+                                </div>
+                                <div class="modal-body">
+                                    Ce projet peut être marqué comme <strong>Terminé</strong>, <strong>Annulé</strong> ou <strong>Supprimé définitivement</strong>.
+                                </div>
+                                <div class="modal-footer">
+
+                                    <!-- Marquer comme terminé -->
+                                    <form method="POST" action="{{ route('project.markAs', ['project' => $project->id, 'status' => 'Terminé']) }}" style="display:inline;" onclick="event.stopPropagation();" >
+                                        @csrf
+                                        <button type="submit" class="btn btn-success">Terminé</button>
+                                    </form>
+
+                                    <!-- Marquer comme annulé -->
+                                    <form method="POST" action="{{ route('project.markAs', ['project' => $project->id, 'status' => 'Annulé']) }}" style="display:inline;" onclick="event.stopPropagation();" >
+                                        @csrf
+                                        <button type="submit" class="btn btn-warning">Annulé</button>
+                                    </form>
+
+                                    <!-- Suppression définitive -->
+                                    <form method="POST" action="{{ route('project.destroy', $project->id) }}" style="display:inline;" onclick="event.stopPropagation();" >
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger">Supprimer</button>
+                                    </form>
+
+                                </div>
+                                </div>
+                            </div>
+                            </div>
                         </td>
                     </tr>
                     {{-- Ligne description et équipe cachée --}}

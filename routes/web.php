@@ -16,6 +16,8 @@ Route::get('/index/project/{project}/edit', [ProjectController::class, 'edit'])-
 Route::put('/index/project/{project}/update', [ProjectController::class, 'update'])->name('project.update');
 Route::delete('/index/project/{project}/destroy', [ProjectController::class, 'destroy'])->name('project.destroy');
 
+Route::post('/project/{project}/mark-as/{status}', [ProjectController::class, 'markAs'])->name('project.markAs');
+
 // Team Management
 Route::get('/index/team', [TeamController::class, 'index'])->name('team.index');
 Route::get('/create/team', [TeamController::class, 'create'])->name('team.create');

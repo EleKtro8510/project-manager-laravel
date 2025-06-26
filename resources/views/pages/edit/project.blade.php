@@ -73,8 +73,10 @@
                     >
                         <option value="" disabled {{ old('status', $project->status) ? '' : 'selected' }}>-- Sélectionner un statut --</option>
                         <option value="En cours" {{ old('status', $project->status) == 'En cours' ? 'selected' : '' }}>En cours</option>
-                        <option value="Terminé" {{ old('status', $project->status) == 'Terminé' ? 'selected' : '' }}>Terminé</option>
                         <option value="En attente" {{ old('status', $project->status) == 'En attente' ? 'selected' : '' }}>En attente</option>
+                        <option value="En pause" {{ old('status', $project->status) == 'En pause' ? 'selected' : '' }}>En pause</option>
+                        <option value="Annulé" {{ old('status', $project->status) == 'Annulé' ? 'selected' : '' }}>Annulé</option>
+                        <option value="Terminé" {{ old('status', $project->status) == 'Terminé' ? 'selected' : '' }}>Terminé</option>
                     </select>
                 </div>
 

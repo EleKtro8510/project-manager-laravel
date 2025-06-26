@@ -88,4 +88,14 @@ class ProjectController extends Controller
         $project->delete();
         return redirect(route('project.index'))->with('success', 'Projet supprimé');
     }
+
+    public function markAs(Project $project, $status){
+        $allowed = ['Terminé', 'Annulé'];
+
+        if (in_array($status, $allowed)) {
+            $project->update(['status' => $status]);
+        }
+
+        return redirect()->route('project.index')->with('success', "Projet marqué comme $status.");
+    }
 }
