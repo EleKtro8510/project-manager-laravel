@@ -6,7 +6,23 @@
 @section('content')
 <div class="container mt-5">
 
-    <h1 class="mb-4"><a href="{{ route('project.index') }}">Projets</a> / Equipes / <a href="{{ route('member.index') }}">Membres</a></h1>
+    <ul class="nav nav-pills mb-4">
+        <li class="nav-item">
+            <a class="nav-link fs-3 py-3 px-4 {{ request()->routeIs('project.index') ? 'active' : '' }}" href="{{ route('project.index') }}">
+                Projets
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link fs-3 py-3 px-4 {{ request()->routeIs('team.index') ? 'active' : '' }}" >
+                Équipes
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link fs-3 py-3 px-4 {{ request()->routeIs('member.index') ? 'active' : '' }}" href="{{ route('member.index') }}">
+                Membres
+            </a>
+        </li>
+    </ul>
 
     
     
