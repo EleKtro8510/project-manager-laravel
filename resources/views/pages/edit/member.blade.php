@@ -41,7 +41,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="role" class="form-label">Statut</label>
+                    <label for="role" class="form-label">Rôle</label>
                     <select
                         id="role"
                         name="role"
