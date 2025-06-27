@@ -22,7 +22,7 @@ Project
 
     name
 
-    description
+    description (nullable)
 
     status
 
@@ -46,17 +46,17 @@ Member
 
 🖼️ Aperçu des pages
 
-    /projects → Liste des projets avec filtre par équipe
+    /project → Liste des projets avec filtre par équipe
 
-    /teams → Liste des équipes avec leurs membres
+    /team → Liste des équipes avec leurs membres
 
-    /members → Vue de tous les membres, avec équipe associée
+    /member → Vue de tous les membres, avec équipe associée
 
 📝 Personnalisation
 
-    Tu peux personnaliser les rôles des membres dans les vues team.create et team.edit
+    Tu peux personnaliser les rôles des membres dans les vues create.team et edit.team
 
-    Ajoute ou désactive des statuts de projets dans les enums ou select
+    Ajoute ou désactive des statuts de projets dans les <select>
 
 📌 Notes techniques
 
