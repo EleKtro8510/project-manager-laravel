@@ -63,13 +63,36 @@
                                 Modifier
                             </a>
                         </td>
-                        <td>
-                            <form method="POST" action="{{ route('team.destroy', ['team' => $team]) }}" onsubmit="return confirm('Confirmer la suppression ?')" onclick="event.stopPropagation();">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-sm btn-danger">Supprimer</button>
-                            </form>
-                        </td>
+                            <td onclick="event.stopPropagation();" >
+                                <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#confirmModal-{{ $team->id }}" onclick="event.stopPropagation();" >
+                                    Supprimer
+                                </button>
+                                <div class="modal fade" id="confirmModal-{{ $team->id }}" tabindex="-1" aria-labelledby="confirmModalLabel-{{ $team->id }}" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="confirmModalLabel-{{ $team->id }}">Que souhaitez-vous faire ?</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Etes-vous sûr de vouloir <strong>supprimer définitivement</strong> cette équipe?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <!-- Annulation -->
+                                                <button type="button" class="btn btn-light" data-bs-dismiss="modal" aria-label="Fermer">Annuler</button>
+
+                                                <!-- Suppression définitive -->
+                                                <form method="POST" action="{{ route('team.destroy', $team->id) }}" style="display:inline;" onclick="event.stopPropagation();" >
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger">Supprimer</button>
+                                                </form>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
                     </tr>
                     {{-- Ligne membres cachée --}}
                     <tr class="description-row" style="display:none;">
